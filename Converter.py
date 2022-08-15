@@ -3,20 +3,22 @@
 
 category = input("Select the category you want to make a conversion:\nWeight (w)\nTemperature (t)\nDistance (d)\n:")
 
+# Weight conversion
 if category.lower() == "w":
-    weight = str(input("Select the weight unit you want to convert from:\nKilograms (k)\nPounds (p)\n:"))
-    weight_unit = str(input("Select the weight unit you want to convert to:\nKilograms (k)\nPounds (p)\n:"))
+    weight = str(input("Select the weight unit you want to convert from:\nKilograms (k)\nPounds (p)\n:"))   # Measurement unit you have
+    weight_unit = str(input("Select the weight unit you want to convert to:\nKilograms (k)\nPounds (p)\n:"))    # The resulting measurement unit
     if weight or weight_unit != "k" or "p":
         print("Wrong letter selected")
     if weight == "k" and weight_unit == "p":
         kilograms = input("Insert the amount of kilograms you want to convert: ")
-        weight_result = float(kilograms) * 2.205
+        weight_result = float(kilograms) * 2.205        # Conversion formula
         print("Weight is " + str(weight_result) + " lbs")
     elif weight == "p" and weight_unit == "k":
         pounds = input("Insert the amount of pounds you want to convert: ")
         weight_result2 = float(pounds) * 0.453
         print("Weight is " + str(weight_result2) + " kgs")
 
+# Temperature conversion
 elif category.lower() == "t":
     temperature = input("Select the temperature unit you want to convert from:\nCelsius (c)\nFahrenheit (f)\n:")
     temperature_unit = input("Select the temperature unit you want to convert from:\nCelsius (c)\nFahrenheit (f)\n:")
@@ -31,6 +33,7 @@ elif category.lower() == "t":
         temperature_result2 = (Fahrenheits - 32) * 0.5556
         print("Temperature is " + str(temperature_result2) + " degrees Celsius")
 
+# Distance conversion
 elif category.lower() == "d":
     distance = input("Select the distance unit you want to convert from:\nKilometers (k)\nMiles (m)")
     distance_unit = input("Select the distance unit you want to convert to:\nKilometers (k)\nMiles (m)")
@@ -45,9 +48,10 @@ elif category.lower() == "d":
         distance_result2 = Miles * 1.609
         print("Distance is " + str(distance_result2) + " kilometers")
 
+# Wrong input message
 else:
-    print("End")
+    print("Please select a valid category")
 
 
 # Comments:
-# Could we implement a function instead of if's?
+# Use of functions/classes instead of if's?
