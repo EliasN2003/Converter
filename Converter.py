@@ -1,57 +1,68 @@
+# CONVERTER
 
-# CONVERTER PROJECT 
+category = input("Select a category:\nWeight (w)\nDistance (d)\nTemperature (t)\n>> ")  # Select the category for a conversion
 
-category = input("Select the category you want to make a conversion:\nWeight (w)\nTemperature (t)\nDistance (d)\n:")
 
-# Weight conversion
-if category.lower() == "w":
-    weight = str(input("Select the weight unit you want to convert from:\nKilograms (k)\nPounds (p)\n:"))   # Measurement unit you have
-    weight_unit = str(input("Select the weight unit you want to convert to:\nKilograms (k)\nPounds (p)\n:"))    # The resulting measurement unit
-    if weight or weight_unit != "k" or "p":
-        print("Wrong letter selected")
-    if weight == "k" and weight_unit == "p":
-        kilograms = input("Insert the amount of kilograms you want to convert: ")
-        weight_result = float(kilograms) * 2.205        # Conversion formula
-        print("Weight is " + str(weight_result) + " lbs")
-    elif weight == "p" and weight_unit == "k":
-        pounds = input("Insert the amount of pounds you want to convert: ")
-        weight_result2 = float(pounds) * 0.453
-        print("Weight is " + str(weight_result2) + " kgs")
+def weight():
+    # Selects the conversion
+    conversion = input("\nSelect a conversion method:\nKilograms to pounds (1)\nPounds to kilograms (2)\n>> ")
 
-# Temperature conversion
-elif category.lower() == "t":
-    temperature = input("Select the temperature unit you want to convert from:\nCelsius (c)\nFahrenheit (f)\n:")
-    temperature_unit = input("Select the temperature unit you want to convert from:\nCelsius (c)\nFahrenheit (f)\n:")
-    if temperature or temperature_unit != "c" or "f":
-        print("Wrong letter selected")
-    if temperature.lower() == "c" and temperature_unit.lower() == "f":
-        Celsius = input("Insert the temperature in Celsius you want to convert: ")
-        temperature_result = float(Celsius) * 1.8 + 32
-        print("Temperature is " + str(temperature_result) + " degrees fahrenheit")
-    if temperature.lower() == "f" and temperature_unit.lower() == "c":
-        Fahrenheits = float(input("Insert the temperature in Fahrenheits you want to convert: "))
-        temperature_result2 = (Fahrenheits - 32) * 0.5556
-        print("Temperature is " + str(temperature_result2) + " degrees Celsius")
+    if conversion == "1":       # Converts kilograms to pounds
+        kilograms = float(input("Insert the amount of kilograms: "))
+        result = float(kilograms) * 2.205
+        print(str(result) + " pounds")
 
-# Distance conversion
-elif category.lower() == "d":
-    distance = input("Select the distance unit you want to convert from:\nKilometers (k)\nMiles (m)")
-    distance_unit = input("Select the distance unit you want to convert to:\nKilometers (k)\nMiles (m)")
-    if distance or distance_unit != "k" or "m":
-        print("Wrong letter selected")
-    if distance == "k" and distance_unit == "m":
-        kilometers = float(input("Insert the distance you want to convert to Miles: "))
-        distance_result = kilometers / 1.609
-        print("Distance is " + str(distance_result) + " miles")
-    if distance == "m" and distance_unit == "k":
-        Miles = float(input("Insert the distance you want to convert to Kilometers: "))
-        distance_result2 = Miles * 1.609
-        print("Distance is " + str(distance_result2) + " kilometers")
+    elif conversion == "2":     # Converts pounds to kilograms
+        pounds = float(input("Insert the amount of pounds: "))
+        result = float(pounds) / 2.205
+        print(str(result) + " kilograms")
 
-# Wrong input message
+    else:
+        print("Incorrect input")
+
+
+def distance():
+    conversion = input("Select a conversion method:\nKilometers to miles (1)\nMiles to kilometers (2)\n>> ")
+    if conversion == "1":
+        kilometers = float(input("Insert the amount of kilometers: "))
+        result = float(kilometers) / 1.609
+        print(str(result) + " miles")
+
+    elif conversion == "2":
+        miles = float(input("Insert the amount of miles: "))
+        result = float(miles) * 1.609
+        print(str(result) + " kilometers")
+
+
+def temperature():
+    conversion = input("Select a conversion method:\nCelsius to fahrenheit (1)\nFahrenheit to celsius (2)\n>> ")
+    if conversion == "1":
+        celsius = float(input("Insert the amount of celsius: "))
+        result = float(celsius) * 1.8 + 32
+        print(str(result) + " fahrenheit")
+
+    elif conversion == "2":
+        fahrenheit = float(input("Insert the amount of fahrenheit: "))
+        result = float(fahrenheit - 32) * 0.5556
+        print(str(result) + " celsius")
+
+
+if category.lower() == "w":     # Runs the weight function
+    weight()
+
+elif category.lower() == "d":     # Runs the distance function
+    distance()
+
+elif category.lower() == "t":     # Runs the temperature function
+    temperature()
+
 else:
-    print("Please select a valid category")
+    print("Error")
+
+
+
+
 
 
 # Comments:
-# Use of functions/classes instead of if's?
+# Take care of errors
