@@ -14,7 +14,10 @@ def weight():
             result = float(kilograms) * 2.205
             print(str(result) + " pounds")
         except ValueError:
-            print("Please enter a number")
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
     elif conversion == "2":     # Converts pounds to kilograms
         try:
@@ -22,7 +25,10 @@ def weight():
             result = float(pounds) / 2.205
             print(str(result) + " kilograms")
         except ValueError:
-            print("Please enter a number")
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
 
 def distance():
@@ -33,7 +39,10 @@ def distance():
             result = float(kilometers) / 1.609
             print(str(result) + " miles")
         except ValueError:
-            print("Please enter a number")
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
     elif conversion == "2":     # Converts miles to kilometers
         try:
@@ -41,7 +50,10 @@ def distance():
             result = float(miles) * 1.609
             print(str(result) + " kilometers")
         except ValueError:
-            print("Please enter a number")
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
 
 def temperature():
@@ -52,7 +64,10 @@ def temperature():
             result = float(celsius * 1.8) + 32
             print(str(result) + " fahrenheit")
         except ValueError:
-            print("Please enter a number")
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
     elif conversion == "2":     # Converts fahrenheit to celsius
         try:
@@ -60,8 +75,10 @@ def temperature():
             result = float(fahrenheit - 32) * 0.5556
             print(str(result) + " celsius")
         except ValueError:
-            print("Please enter a number")
-
+            print("Error, please enter a valid number")
+            run_again = input("Run again? (y),(n)\n")
+            if run_again == "y":
+                weight()
 
 
 if category.lower() == "w":     # Runs the weight function
@@ -83,6 +100,7 @@ else:
 # Comments:
 # Take care of errors
 # Make it restart when it ends
+
 
 
 
