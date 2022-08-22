@@ -29,6 +29,7 @@ def weight():
                        "\nPounds to kilograms (2)"
                        "\nGrams to kilograms  (3)"
                        "\nKilograms to grams  (4)"
+                       "\nReturn              (5)"
                        "\n>> ")
 
     if conversion == "1":       # Converts kilograms to pounds
@@ -71,6 +72,10 @@ def weight():
             restart_weight()
             return
 
+    elif conversion == "5":     # Goes back one step in case of miss input
+        restart()
+        return
+
 
     else:
         print("\n\nPlease choose a conversion category\n")     # Prints error message and prompts you to select category again.
@@ -84,6 +89,7 @@ def distance():
                        "\nMiles to kilometers (2)"
                        "\nMeters to miles     (3)"
                        "\nMiles to meters     (4)"
+                       "\nReturn              (5)"
                        "\n>> ")
     if conversion == "1":       # Converts kilometers to miles
         try:
@@ -125,6 +131,10 @@ def distance():
             restart_distance()
             return
 
+    elif conversion == "5":     # Goes back one step in case of miss input
+        restart()
+        return
+
 
     else:
         print("\n\nPlease choose a conversion category")
@@ -138,6 +148,7 @@ def temperature():
                        "\nFahrenheit to celsius (2)"
                        "\nKelvin to celsius     (3)"
                        "\nCelsius to kelvin     (4)"
+                       "\nReturn                (5)"
                        "\n>> ")
     if conversion == "1":       # Converts celsius to fahrenheit
         try:
@@ -179,6 +190,10 @@ def temperature():
             restart_temperature()
             return
 
+    elif conversion == "5":     # Goes back one step in case of miss input
+        restart()
+        return
+
 
     else:
         print("\n\nPlease choose a conversion category")
@@ -208,5 +223,4 @@ def start():
 
 start()     # Starts the program for the first time.
 
-# Comments:
-# Make it jump out of functions (1,2,3,4)
+
