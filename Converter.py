@@ -24,7 +24,12 @@ def restart_temperature():      # Used to restart the temperature function so it
 
 def weight():
     # Selects the conversion method
-    conversion = input("Select a conversion method:\nKilograms to pounds (1)\nPounds to kilograms (2)\n>> ")
+    conversion = input("Select a conversion method:"
+                       "\nKilograms to pounds (1)"
+                       "\nPounds to kilograms (2)"
+                       "\nGrams to kilograms  (3)"
+                       "\nKilograms to grams  (4)"
+                       "\n>> ")
 
     if conversion == "1":       # Converts kilograms to pounds
         try:
@@ -46,6 +51,27 @@ def weight():
             restart_weight()
             return
 
+    elif conversion == "3":     # Converts grams to kilograms
+        try:
+            pounds = float(input("Insert the amount of grams: "))
+            result = float(pounds) / 1000
+            print(str(result) + " kilograms")
+        except ValueError:
+            print("\n\nPlease enter a valid number\n")
+            restart_weight()
+            return
+
+    elif conversion == "4":     # Converts kilograms to grams
+        try:
+            pounds = float(input("Insert the amount of kilograms: "))
+            result = float(pounds) * 1000
+            print(str(result) + " grams")
+        except ValueError:
+            print("\n\nPlease enter a valid number\n")
+            restart_weight()
+            return
+
+
     else:
         print("\n\nPlease choose a conversion category\n")     # Prints error message and prompts you to select category again.
         restart_weight()
@@ -53,7 +79,12 @@ def weight():
 
 
 def distance():
-    conversion = input("Select a conversion method:\nKilometers to miles (1)\nMiles to kilometers (2)\n>> ")
+    conversion = input("Select a conversion method:"
+                       "\nKilometers to miles (1)"
+                       "\nMiles to kilometers (2)"
+                       "\nMeters to miles     (3)"
+                       "\nMiles to meters     (4)"
+                       "\n>> ")
     if conversion == "1":       # Converts kilometers to miles
         try:
             kilometers = float(input("Insert the amount of kilometers: "))
@@ -74,6 +105,27 @@ def distance():
             restart_distance()
             return
 
+    elif conversion == "3":     # Converts meters to miles
+        try:
+            miles = float(input("Insert the amount of meters: "))
+            result = float(miles) / 1609
+            print(str(result) + " miles")
+        except ValueError:
+            print("\n\nPlease enter a valid number")
+            restart_distance()
+            return
+
+    elif conversion == "4":     # Converts miles to meters
+        try:
+            miles = float(input("Insert the amount of miles: "))
+            result = float(miles) * 1609
+            print(str(result) + " meters")
+        except ValueError:
+            print("\n\nPlease enter a valid number")
+            restart_distance()
+            return
+
+
     else:
         print("\n\nPlease choose a conversion category")
         restart_distance()
@@ -81,7 +133,12 @@ def distance():
 
 
 def temperature():
-    conversion = input("Select a conversion method:\nCelsius to fahrenheit (1)\nFahrenheit to celsius (2)\n>> ")
+    conversion = input("Select a conversion method:"
+                       "\nCelsius to fahrenheit (1)"
+                       "\nFahrenheit to celsius (2)"
+                       "\nKelvin to celsius     (3)"
+                       "\nCelsius to kelvin     (4)"
+                       "\n>> ")
     if conversion == "1":       # Converts celsius to fahrenheit
         try:
             celsius = float(input("Insert the amount of celsius: "))
@@ -101,6 +158,27 @@ def temperature():
             print("\n\nPlease enter a valid number")
             restart_temperature()
             return
+
+    elif conversion == "3":     # Converts kelvin to celsius
+        try:
+            fahrenheit = float(input("Insert the amount of kelvins: "))
+            result = float(fahrenheit) - 273.15
+            print(str(result) + " celsius")
+        except ValueError:
+            print("\n\nPlease enter a valid number")
+            restart_temperature()
+            return
+
+    elif conversion == "4":     # Converts celsius to kelvins
+        try:
+            fahrenheit = float(input("Insert the amount of celsius: "))
+            result = float(fahrenheit) + 273.15
+            print(str(result) + " kelvins")
+        except ValueError:
+            print("\n\nPlease enter a valid number")
+            restart_temperature()
+            return
+
 
     else:
         print("\n\nPlease choose a conversion category")
@@ -130,3 +208,5 @@ def start():
 
 start()     # Starts the program for the first time.
 
+# Comments:
+# Make it jump out of functions (1,2,3,4)
