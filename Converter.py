@@ -1,12 +1,30 @@
 
 # CONVERTER
 
-category = input("Select a category:\nWeight (w)\nDistance (d)\nTemperature (t)\n>> ")  # Select the category for a conversion
+
+def restart():      # Used to restart the starting function.
+    start()
+    return
+
+
+def restart_weight():       # Used to restart the weight function so it doesn't restart itself.
+    weight()
+    return
+
+
+def restart_distance():     # Used to restart the distance function so it doesn't restart itself.
+    distance()
+    return
+
+
+def restart_temperature():      # Used to restart the temperature function so it doesn't restart itself.
+    temperature()
+    return
 
 
 def weight():
-    # Selects the conversion
-    conversion = input("\nSelect a conversion method:\nKilograms to pounds (1)\nPounds to kilograms (2)\n>> ")
+    # Selects the conversion method
+    conversion = input("Select a conversion method:\nKilograms to pounds (1)\nPounds to kilograms (2)\n>> ")
 
     if conversion == "1":       # Converts kilograms to pounds
         try:
@@ -14,10 +32,9 @@ def weight():
             result = float(kilograms) * 2.205
             print(str(result) + " pounds")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number\n")     # Prints error message and asks you to enter the value again.
+            restart_weight()
+            return
 
     elif conversion == "2":     # Converts pounds to kilograms
         try:
@@ -25,10 +42,14 @@ def weight():
             result = float(pounds) / 2.205
             print(str(result) + " kilograms")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number\n")
+            restart_weight()
+            return
+
+    else:
+        print("\n\nPlease choose a conversion category\n")     # Prints error message and prompts you to select category again.
+        restart_weight()
+        return
 
 
 def distance():
@@ -39,10 +60,9 @@ def distance():
             result = float(kilometers) / 1.609
             print(str(result) + " miles")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number")
+            restart_distance()
+            return
 
     elif conversion == "2":     # Converts miles to kilometers
         try:
@@ -50,10 +70,14 @@ def distance():
             result = float(miles) * 1.609
             print(str(result) + " kilometers")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number")
+            restart_distance()
+            return
+
+    else:
+        print("\n\nPlease choose a conversion category")
+        restart_distance()
+        return
 
 
 def temperature():
@@ -64,10 +88,9 @@ def temperature():
             result = float(celsius * 1.8) + 32
             print(str(result) + " fahrenheit")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number")
+            restart_temperature()
+            return
 
     elif conversion == "2":     # Converts fahrenheit to celsius
         try:
@@ -75,32 +98,35 @@ def temperature():
             result = float(fahrenheit - 32) * 0.5556
             print(str(result) + " celsius")
         except ValueError:
-            print("Error, please enter a valid number")
-            run_again = input("Run again? (y),(n)\n")
-            if run_again == "y":
-                weight()
+            print("\n\nPlease enter a valid number")
+            restart_temperature()
+            return
+
+    else:
+        print("\n\nPlease choose a conversion category")
+        restart_temperature()
+        return
 
 
-if category.lower() == "w":     # Runs the weight function
-    weight()
+def start():
+    print("\n__CONVERTER PROGRAM__")
+    category = input("Select a category:\nWeight (w)\nDistance (d)\nTemperature (t)\n>> ")  # Select the category for a conversion
 
-elif category.lower() == "d":     # Runs the distance function
-    distance()
+    if category.lower() == "w":     # Runs the weight conversion function
+        weight()
 
-elif category.lower() == "t":     # Runs the temperature function
-    temperature()
+    elif category.lower() == "d":     # Runs the distance conversion function
+        distance()
 
-# Error message
-else:
-    print("Incorrect input")
+    elif category.lower() == "t":     # Runs the temperature conversion function
+        temperature()
 
-
-
-
-# Comments:
-# Take care of errors
-# Make it restart when it ends
-
+    else:
+        print("\n\nError, please select a category for conversion")
+        if input("Run again? (y)\n") == "y":
+            restart()       # Restarts the program
+            return
 
 
+start()     # Starts the program for the first time.
 
